@@ -20,10 +20,6 @@ public class GameCreator : MonoBehaviour
         }
         listPos = -1;
 
-        //dupe players from game manager
-        List<string> playersQueue = GameManager.instance.players;
-        //remove current player from list
-        playersQueue.Remove(GameManager.instance.currentPlayer);
     }
 
     public void AddPlayer()

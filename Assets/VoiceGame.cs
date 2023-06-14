@@ -98,6 +98,22 @@ public class VoiceGame : MonoBehaviour {
         });
         yield return new WaitForSeconds(1);
 
+        //Handle next turn
+
+        nextPlayer.gameObject.SetActive(true);
+
+        playersQueue.Remove(turnPlayer);
+
+        //if the list is empty, end the game
+        if (playersQueue.Count == 0) {
+            EndGame();
+        } 
+        else 
+        {
+            turnPlayer = playersQueue[Random.Range(0, playersQueue.Count)];
+            nextText.SetText("It is now " + turnPlayer + "'s turn.");
+        }
+
     }
 
     private IEnumerator sliderDown() {
@@ -120,23 +136,6 @@ public class VoiceGame : MonoBehaviour {
         Debug.Log("String result: " + result);
         speechText.SetText("[Your result here]");
         firstSentence.text = result;
-
-        nextPlayer.gameObject.SetActive(true);
-
-        //if the list is empty, end the game
-        if (playersQueue.Count > 0) {
-            playersQueue.Remove(turnPlayer);
-        } 
-        else 
-        {
-            EndGame();
-            finalResult = result;
-            return;
-        }
-
-        turnPlayer = playersQueue[Random.Range(0, playersQueue.Count)];
-        Debug.Log(turnPlayer);
-        nextText.SetText("It is now" + turnPlayer + "'s turn.");
     }
 
     public void RecordNext() {
@@ -144,6 +143,7 @@ public class VoiceGame : MonoBehaviour {
     }
 
     public void EndGame() {
+        finalResult = firstSentence.text;
         end.SetActive(true);
         string[] gameSentenceArray = gameSentence.Split(' ');
         string[] resultSentenceArray = finalResult.Split(' ');
@@ -152,14 +152,15 @@ public class VoiceGame : MonoBehaviour {
         List<string> gameSentenceList = new List<string>(gameSentenceArray);
         List<string> resultSentenceList = new List<string>(resultSentenceArray);
 
+        int penalties = gameSentenceList.Count;
         //compare game sentence to result sentence and remove words that are the same
         foreach (string word in gameSentenceList) {
             if (resultSentenceList.Contains(word)) {
-                gameSentenceList.Remove(word);
+                penalties--;
             }
         }
-        int penalties = gameSentenceList.Count;
-        endText.SetText("The original sentence was " + gameSentence + ". Your sentence was " + penalties + "words different! Everyone takes that many sips.");
+
+        endText.SetText("The original sentence was: " + gameSentence + "Your sentence was:" + finalResult + ". Your sentence was " + penalties + " words different! Everyone takes that many sips.");
     }
 
 }

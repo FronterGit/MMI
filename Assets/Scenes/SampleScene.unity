@@ -785,8 +785,8 @@ MonoBehaviour:
   playersQueue: []
   turnPlayer: 
   finalResult: 
-  end: {fileID: 0}
-  endText: {fileID: 0}
+  end: {fileID: 1468827263}
+  endText: {fileID: 2128236849}
 --- !u!224 &167319536
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10523,6 +10523,7 @@ MonoBehaviour:
   gameCreator: {fileID: 353980748}
   ready: {fileID: 674658040}
   games:
+  - {fileID: 1345338121}
   - {fileID: 167319534}
   players: []
   currentGame: 
@@ -11378,8 +11379,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
