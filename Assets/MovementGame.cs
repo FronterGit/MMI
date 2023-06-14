@@ -68,7 +68,7 @@ public class MovementGame : MonoBehaviour
     {
         gameRunning = false;
         endScreen.SetActive(true);
-        endText.text = GameManager.instance.currentPlayer + "your final score was: " + healthbar.value.ToString() + " out of " + healthbar.maxValue.ToString() + ". You must take " + (10 - Mathf.Ceil(healthbar.value / 10)) + " sips!";
+        endText.text = GameManager.instance.currentPlayer + " your final score was: " + healthbar.value.ToString() + " out of " + healthbar.maxValue.ToString() + ". You must take " + (10 - Mathf.Ceil(healthbar.value / 10)) + " sips!";
     }
 
     IEnumerator ChangeColor()
