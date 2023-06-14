@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,6 +37,7 @@ public class GameManager : MonoBehaviour
 
         //set current game and player to the randomly selected game and player
         currentGame = games[randomGame].name;
+        games[randomGame].SetActive(false);
         currentPlayer = players[randomPlayer];
 
         //set the ready screen text to the according game and player names

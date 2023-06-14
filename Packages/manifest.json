@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.github.asus4.tflite": "https://github.com/asus4/tf-lite-unity-sample.git?path=/Packages/com.github.asus4.tflite",
     "com.unity.collab-proxy": "2.0.4",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.21",
