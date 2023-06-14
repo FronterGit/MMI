@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using KKSpeech;
 using UnityEngine.Events;
 namespace KKSpeech
 {
