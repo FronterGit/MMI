@@ -11,9 +11,14 @@ public class GameManager : MonoBehaviour
     public List<GameObject> games = new List<GameObject>();
 
     public List<string> players = new List<string>();
-    private string currentGame;
-    private string currentPlayer;
+    public string currentGame;
+    public string currentPlayer;
 
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+    }
     public void ReadyCheck()
     {
         ready.SetActive(true);
@@ -56,6 +61,16 @@ public class GameManager : MonoBehaviour
                 games[i].SetActive(false);
             }
         }
+    }
+
+    public void NextGame()
+    {
+        //forloop through the games and set them all to inactive
+        for (int i = 0; i < games.Count; i++)
+        {
+            games[i].SetActive(false);
+        }
+        ReadyCheck();
     }
 
     public void ClearGame()

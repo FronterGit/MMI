@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameCreator : MonoBehaviour
@@ -26,10 +26,15 @@ public class GameCreator : MonoBehaviour
     {
         Input.SetActive(true);
         inputField.text = "";
-        listPos++;
     }
     public void ConfirmAddPlayer()
     {
+        if(inputField.text == "" && inputField.text.Length < 12)
+        {
+            Input.SetActive(false);
+            return;
+        }
+        listPos++;
         tmpTextList[listPos].text = inputField.text;
         Input.SetActive(false);
     }
